@@ -18,6 +18,12 @@ The project uses the [blockcian.info](https://www.blockchain.com/es/api/exchange
 
 5. Have fun!
 
+## How to get all available prices
+In your `http://localhost:4000`
+<div>
+  <img src="https://raw.githubusercontent.com/LuisAcerv/graphql-api-tutorial/master/imageExamples/query_prices.png"/>
+</div>
+
 ## How to get a currency price
 In your `http://localhost:4000`
 <div>

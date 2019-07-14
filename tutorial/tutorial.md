@@ -3,7 +3,7 @@
 ## So, the first of all, what the heck is GraphQL? 
 Before starting with the code I would like to say this tutorial is for a beginner level, the idea is to get started with GraphQL in a gentle and simple way, in future parts we are going to make our API bigger and more complex.
 
-Then, what is GraphQL? 
+### Then, what is? 
 From the official [site](https://graphql.org/): 
 `GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API.`
 

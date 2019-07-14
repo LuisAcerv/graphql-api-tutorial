@@ -10,3 +10,7 @@ From the official [site](https://graphql.org/):
 GraphQL will help us to standardize our APIs structure and to make it more maintainable, easy to read, and easy to share across our clients.
 
 Personally, I've been working with GraphQL the last year and a half, and I have to say that if in the beginning was some difficult to put all in order, nowadays I love GQL.
+
+Well, as I said at the beginning we are going to build a very simple bitcoin API, the master plan is to add more functionality in future posts and create a web client which will consume our API, but by now we are just getting started to understand how GraphQL works and how we can use it for out bitcoin application.
+
+## Getting started

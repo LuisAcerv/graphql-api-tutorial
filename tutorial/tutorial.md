@@ -13,4 +13,11 @@ Personally, I've been working with GraphQL the last year and a half, and I have 
 
 Well, as I said at the beginning we are going to build a very simple bitcoin API, the master plan is to add more functionality in future posts and create a web client which will consume our API, but by now we are just getting started to understand how GraphQL works and how we can use it for out bitcoin application.
 
-## Getting started
+## Getting started.
+_You can get the whole repository [here](https://github.com/LuisAcerv/graphql-api-tutorial)_
+
+First of all, we need to set up our project.
+- 1 In your terminal run the following command: `mkdir btc-gql && cd btc-gql`, this command will create and access a new folder in your current directory.
+- 2 In your terminal run `yarn init` and fill the fields that will be prompted.
+- 3 Installing dependencies:
+- 3.1 For this project we are going to need two dependencies: `axios` and `graphql-yoga`, so we run `yarn add axios graphql-yoga`

@@ -17,3 +17,9 @@ The project uses the [blockcian.info](https://www.blockchain.com/es/api/exchange
 4. Go to: `http://localhost:4000`
 
 5. Have fun!
+
+## How to get a currency price
+In your `http://localhost:4000`
+<div>
+  <img src="https://raw.githubusercontent.com/LuisAcerv/graphql-api-tutorial/master/imageExamples/query_price.png"/>
+</div>

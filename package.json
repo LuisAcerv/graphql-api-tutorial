@@ -1,0 +1,12 @@
+{
+  "name": "bitcoin-api-graphql-tutorial",
+  "version": "1.0.0",
+  "description": "Bitcoin Prices And Address generation with GQL",
+  "main": "index.js",
+  "author": "LuisAcerv",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "graphql-yoga": "^1.18.0"
+  }
+}

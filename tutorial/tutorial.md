@@ -230,7 +230,7 @@ At the top level of every GraphQL server is a type that represents all of the po
 
 Open the file called `./graphql/resolvers.js` and add the following:
 ```javascript
-const requests = require("./requests");
+const request = require("./request");
 
 const resolvers = {
   Query: {
@@ -249,3 +249,33 @@ const resolvers = {
 
 module.exports = resolvers;
 ```
+
+Let's break it down, first we import our request helper:
+```javascript
+const request = require("./request");
+```
+Not we need to declare or resolvers object:
+```
+const resolvers = {
+  Query: {
+    // Get all available prices
+    async getPrices(parent, args, ctx, info) {
+      const prices = await requests.getPrices();
+      return { price: prices.data };
+    },
+    // Get the price of a given currency symbol
+    async getPrice(parent, args, ctx, info) {
+      const prices = await requests.getPrices();
+      return { price: { [args["currency"]]: prices.data[args["currency"]] } };
+    }
+  }
+};
+```
+Our resolver object has a root called `Query` and inside this object we are going to declare all the resolvers we have in our GraphQL shcema, notice we have named this resolvers just as we did in the `types.js` file.
+
+Each resolver is just a function which implements our request helper, our resolver function receives four arguments:
+
+- `parent`: The previous object, which for a field on the root Query type is often not used.
+- `args`: The arguments provided to the field in the GraphQL query.
+- `ctx`: A value which is provided to every resolver and holds important contextual information like the currently logged in user, or access to a database.
+- `info`: A value which holds field-specific information relevant to the current query as well as the schema details.

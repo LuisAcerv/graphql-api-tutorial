@@ -17,7 +17,62 @@ Well, as I said at the beginning we are going to build a very simple bitcoin API
 _You can get the whole repository [here](https://github.com/LuisAcerv/graphql-api-tutorial)_
 
 First of all, we need to set up our project.
-- 1 In your terminal run the following command: `mkdir btc-gql && cd btc-gql`, this command will create and access a new folder in your current directory.
-- 2 In your terminal run `yarn init` and fill the fields that will be prompted.
-- 3 Installing dependencies:
-- 3.1 For this project we are going to need two dependencies: `axios` and `graphql-yoga`, so we run `yarn add axios graphql-yoga`
+### 1 Create your woking directory
+- In your terminal run the following command: `mkdir btc-gql-api && cd btc-gql-api`, this command will create and access a new folder in your current directory.
+### 2 Init your project
+- In your terminal run `yarn init` and fill the fields that will be prompted.
+This will create the following file in your directory:
+```
+package.json
+```
+The package will look something like this:
+```json
+{
+  "name": "my-new-project",
+  "version": "1.0.0",
+  "description": "My New Project description.",
+  "main": "index.js",
+  "repository": {
+    "url": "https://example.com/your-username/my-new-project",
+    "type": "git"
+  },
+  "author": "Your Name <you@example.com>",
+  "license": "MIT"
+}
+```
+- Run `touch index.js` in order to create your entry file. (If you are in windows create the file manually in your code editor).
+- Add a start command, in your `package.json` add a new section:
+```json
+...
+"scripts": {
+  "start": "node index.js"
+},
+...
+```
+Your package should look like this:
+```json
+{
+  "name": "my-new-project",
+  "version": "1.0.0",
+  "description": "My New Project description.",
+  "main": "index.js","scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "url": "https://example.com/your-username/my-new-project",
+    "type": "git"
+  },
+  "author": "Your Name <you@example.com>",
+  "license": "MIT"
+}
+```
+- Create a new folder called `graphql` in your working directory, so your stucture should look like this:
+```
++ btc-gql-api
+|__ graphql
+|__ package.json
+|__ index.json
+```
+- 
+### 3 Installing dependencies
+- For this project we are going to need two dependencies: `axios` and `graphql-yoga`, so we run `yarn add axios graphql-yoga`

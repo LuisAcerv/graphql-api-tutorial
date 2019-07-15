@@ -88,7 +88,7 @@ Your package should look like this:
 - For this project we are going to need two dependencies: `axios` and `graphql-yoga`, so we run `yarn add axios graphql-yoga`.
 
 That's it, we have set up our project and we can start writing some code!
-## Types
+## 4 Types
 The most basic components of a GraphQL schema are object types, which just represent a kind of object you can fetch from your service, and what fields it has. In the GraphQL schema language, we might represent it like this:
 ```graphql
 type User {
@@ -145,7 +145,7 @@ type Price {
 ...
 
 ```
-## Queries
+## 5 Queries
 GraphQL is about managing data, a `query` is basically asking for specific fields on objects:
 Query:
 ```graphql
@@ -177,7 +177,7 @@ Result:
 }
 ```
 As you can see the response has the same structure of the request.
-## Query and Mutation types
+## 6 Query and Mutation types
 There are other two kind of types that are special within a schema, `Query` and `Mutation`.
 
 Every GraphQL service has at least a query type and may or may not have a mutation type. These types are the same as a regular object type, but they define the entry point of every GraphQL query. They looks like this:
@@ -200,3 +200,7 @@ That means that our GraphQL service have a Query type with `getPrices` and `getP
 
 Arguments can be either required or optional, in this case, we want a required argument called currency which we will use to select the currency we want to query.
 That's it until now you have learned what types exist in GraphQL, and we have set up the necessary types for our application.
+
+## 7 The request helper
+Before we can continue with GraphQL we need a little helper which will be responsible for fecthing the bitcoin prices, to achieve this we are going to use the [Blockchain.com](https://www.blockchain.com/es/api/exchange_rates_api) API ticker, but you could use any other service you want.
+

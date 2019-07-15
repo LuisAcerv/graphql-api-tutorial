@@ -198,5 +198,5 @@ type Query {
 
 That means that our GraphQL service have a Query type with `getPrices` and `getPrice` fields and both are equal to our `Price` type, and we can see that the field `getPrice` has an argument `(currency:String!)`. Every field on a GraphQL object type can have zero or more arguments.
 
-Arguments can be either required or optional.
-
+Arguments can be either required or optional, in this case, we want a required argument called currency which we will use to select the currency we want to query.
+That's it until now you have learned what types exists in GraphQL, and we have set up the necessary types for our application.

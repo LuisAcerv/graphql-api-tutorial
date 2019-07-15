@@ -179,3 +179,24 @@ Result:
 As you can see the response has the same structure of the request.
 ## Query and Mutation types
 There are other two kind of types that are special within a schema, `Query` and `Mutation`.
+
+Every GraphQL service has at least a query type and may or may not have a mutation type. These types are the same as a regular object type, but they define the entry point of every GraphQL query. They looks like this:
+
+```graphql
+scalar JSON
+
+type Price {
+  price:JSON!
+}
+
+type Query {
+  getPrices: Price!
+  getPrice(currency:String!): Price!
+}
+
+```
+
+That means that our GraphQL service have a Query type with `getPrices` and `getPrice` fields and both are equal to our `Price` type, and we can see that the field `getPrice` has an argument `(currency:String!)`. Every field on a GraphQL object type can have zero or more arguments.
+
+Arguments can be either required or optional.
+

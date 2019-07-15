@@ -202,5 +202,21 @@ Arguments can be either required or optional, in this case, we want a required a
 That's it until now you have learned what types exist in GraphQL, and we have set up the necessary types for our application.
 
 ## 7 The request helper
-Before we can continue with GraphQL we need a little helper which will be responsible for fecthing the bitcoin prices, to achieve this we are going to use the [Blockchain.com](https://www.blockchain.com/es/api/exchange_rates_api) API ticker, but you could use any other service you want.
+Before we can continue with GraphQL we need a little helper which will be responsible for fetching the bitcoin prices, to achieve this we are going to use the [Blockchain.com](https://www.blockchain.com/es/api/exchange_rates_api) API ticker, but you could use any other service you want.
 
+Open the file we created previously: `./graphql/request.js` and add the following:
+```javascript
+const axios = require("axios");
+
+module.exports = {
+  getPrices: async () => {
+    const url = "https://blockchain.info/ticker";
+    try {
+      return await axios.get(url);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+};
+```
+We are going to use `axios` to make the `GET` request, but you easily could use any other tool to achieve this.

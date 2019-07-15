@@ -146,3 +146,36 @@ type Price {
 
 ```
 ## Queries
+GraphQL is about managing data, a `query` is basically asking for specific fields on objects:
+Query:
+```graphql
+
+query{
+  getPrices{
+    price
+  }
+}
+```
+Result:
+```json
+
+{
+  "data": {
+    "getPrices": {
+      "price": {
+        "USD": {
+          "15m": 10436.54,
+          "last": 10436.54,
+          "buy": 10436.54,
+          "sell": 10436.54,
+          "symbol": "$"
+        }
+        ...
+      }
+    }
+  }
+}
+```
+As you can see the response has the same structure of the request.
+## Query and Mutation types
+There are other two kind of types that are special within a schema, `Query` and `Mutation`.

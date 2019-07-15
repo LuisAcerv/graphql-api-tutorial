@@ -220,3 +220,32 @@ module.exports = {
 };
 ```
 We are going to use `axios` to make the `GET` request, but you easily could use any other tool to achieve this.
+
+## 8 Resolvers
+Each field on each type is backed by a function called the resolver which is provided by the GraphQL server developer. When a field is executed, the corresponding resolver is called to produce the next value.
+
+If a field produces a scalar value like a string or number, then the execution completes. However if a field produces an object value then the query will contain another selection of fields which apply to that object. This continues until scalar values are reached. GraphQL queries always end at scalar values.
+
+At the top level of every GraphQL server is a type that represents all of the possible entry points into the GraphQL API, it's often called the Root type or the Query type.
+
+Open the file called `./graphql/resolvers.js` and add the following:
+```javascript
+const requests = require("./requests");
+
+const resolvers = {
+  Query: {
+    // Get all available prices
+    async getPrices(parent, args, ctx, info) {
+      const prices = await requests.getPrices();
+      return { price: prices.data };
+    },
+    // Get the price of a given currency symbol
+    async getPrice(parent, args, ctx, info) {
+      const prices = await requests.getPrices();
+      return { price: { [args["currency"]]: prices.data[args["currency"]] } };
+    }
+  }
+};
+
+module.exports = resolvers;
+```

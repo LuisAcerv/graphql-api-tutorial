@@ -279,3 +279,73 @@ Each resolver is just a function which implements our request helper, our resolv
 - `args`: The arguments provided to the field in the GraphQL query.
 - `ctx`: A value which is provided to every resolver and holds important contextual information like the currently logged in user, or access to a database.
 - `info`: A value which holds field-specific information relevant to the current query as well as the schema details.
+
+### 9 The server.
+Now that we have our `types`, `resolvers` and helpers we just need to set up our `server` in order to finish up our very little Bitcoin API.
+
+Open the file `index.js` that we have created previously and add the following:
+```javascript
+const { GraphQLServer } = require("graphql-yoga");
+const typeDefs = require("./graphql/types.js");
+const resolvers = require("./graphql/resolvers.js");
+
+const server = new GraphQLServer({
+  typeDefs,
+  resolvers,
+  context: {
+    //if we pass anything here can be available in all resolvers
+  }
+});
+
+server.start(() => console.log("Server is running on localhost:4000☄"));
+
+```
+
+As you can see, we have import GraphQLServer library and our typeDefs and resolvers, then we create a new instance of `GraphQLServer` and we pass the configuration:
+```javascript
+...
+const server = new GraphQLServer({
+  typeDefs,
+  resolvers,
+  context: {
+    //if we pass anything here can be available in all resolvers
+  }
+});
+...
+
+```
+Finally we run the server!:
+```
+server.start(() => console.log("Server is running on localhost:4000☄"));
+```
+
+That's it! Now we just need to run `npm start` in our terminal, and if everything is right with our code we should see the following message:
+```
+Server is running on localhost:4000☄
+```
+Open you browser and got to `http://localhost:4000`, if everythind is working you should see the playground interface.
+
+Test the queries:
+All available currencies:
+```
+query{
+  getPrices{
+    price
+  }
+}
+```
+Query an specific currency:
+```
+query($currency:String!){
+  getPrice(currency:$currency){
+    price
+  }
+}
+
+# Variables:
+{
+  "currency": "USD"
+}
+```
+
+You should see a response like this:

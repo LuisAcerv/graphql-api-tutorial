@@ -107,3 +107,42 @@ There is also a way to specify custom scalar types. For example, we could define
 ```graphql
 scalar Date
 ```
+If you want to learn more about types in GraphQL I encourage you to check out the GraphQL [documentation](https://graphql.org/learn/schema/)
+
+Let's create our types!
+
+Open the file `./graphql/types.js` in your code editor and add the following:
+```javascript
+
+const typeDefs = `
+scalar JSON
+
+type Price {
+  price:JSON!
+}`;
+
+module.exports = typeDefs;
+```
+
+What did just happened here?
+Well, as we learn before GraphQL uses the type language to represent the objects in your API, for our bitcoin API we are going to need by now just one type in our schema, the type `Price`
+
+```graphql
+...
+type Price {
+  price:JSON!
+}
+...
+```
+
+As you can see the type `Price` has only one field called `price` and it's type is `JSON` and cannot be null (that's what the `!` symbol means). We have talked about the default data type which `GraphQL` includes by default, and `JSON` is not one of them, so we need to define it:
+```graphql
+scalar JSON
+
+type Price {
+  price:JSON!
+}
+...
+
+```
+## Queries

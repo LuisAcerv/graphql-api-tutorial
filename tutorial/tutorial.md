@@ -1,4 +1,4 @@
-# How to create a simple bitcoin API with NodeJS y GraphQL - Part I.
+# How to create a simple bitcoin API with NodeJS and GraphQL - Part I.
 
 ## So, the first of all, what the heck is GraphQL? 
 Before starting with the code I would like to say this tutorial is for a beginner level, the idea is to get started with GraphQL in a gentle and simple way, in future parts we are going to make our API bigger and more complex.
@@ -89,3 +89,21 @@ Your package should look like this:
 
 That's it, we have set up our project and we can start writing some code!
 ## Types
+The most basic components of a GraphQL schema are object types, which just represent a kind of object you can fetch from your service, and what fields it has. In the GraphQL schema language, we might represent it like this:
+```graphql
+type User {
+  name: String!
+  email: String!
+}
+```
+GraphQL comes with a set of default scalar types out of the box:
+* Int: A signed 32‐bit integer.
+* Float: A signed double-precision floating-point value.
+* String: A UTF‐8 character sequence.
+* Boolean: true or false.
+* ID: The ID scalar type represents a unique identifier, often used to refetch an object or as the key for a cache. The ID type is serialized in the same way as a String; however, defining it as an ID signifies that it is not intended to be human‐readable.
+
+There is also a way to specify custom scalar types. For example, we could define a Date type:
+```graphql
+scalar Date
+```

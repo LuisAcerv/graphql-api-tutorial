@@ -11,6 +11,11 @@ const resolvers = {
     async getPrice(parent, args, ctx, info) {
       const prices = await requests.getPrices();
       return { price: { [args["currency"]]: prices.data[args["currency"]] } };
+    },
+    // Get a new bitcoin random keypairs
+    getNewKeyPairs() {
+      const { address, publicKey, privateKey } = requests.generateKeyPairs();
+      return { address, publicKey, privateKey };
     }
   }
 };
